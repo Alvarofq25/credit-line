@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: support-xt21-authorization
+  cloud:
+    config:
+      name: support-xt21-authorization
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  webflux:
+    base-path: '/support/xt21/authorization/v1'
+    static-path-pattern: '/swagger/**'
+  #Para jenkins mantener comentada esta linea, descomentar para trabajo local.
+  #profiles.active: local
+info:
+  project:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    artifact-id: @project.artifactId@
+    type: support
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /openapi
+  remove-broken-reference-definitions: false
+
+application:
+  atlas.openapi:
+    info:
+      version: @project.version@
+      title: @project.name@
+      contact:
+        email: edwinfajardo@bcp.com.pe
+    error-responses:
+      400: Invalid arguments
+      500: Internal server error
+
+management:
+  endpoints:
+    web:
+      base-path: '/support/xt21/authorization/v1/actuator'
